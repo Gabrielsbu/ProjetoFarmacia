@@ -31,7 +31,8 @@ public class RemoverRem extends javax.swing.JInternalFrame {
         initComponents();
         this.buscarTodos();
     }
-     public void buscarTodos() {
+
+    public void buscarTodos() {
 
         try {
             RemedioDAO dao = new RemedioDAO();
@@ -64,7 +65,8 @@ public class RemoverRem extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(viewConsultaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,9 +82,9 @@ public class RemoverRem extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         BotaoC = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tab = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
 
         setBorder(null);
         setClosable(true);
@@ -121,6 +123,13 @@ public class RemoverRem extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Excluir Remédio");
 
+        jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         tab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -133,7 +142,7 @@ public class RemoverRem extends javax.swing.JInternalFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -148,13 +157,6 @@ public class RemoverRem extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(tab);
-
-        jButton2.setText("Buscar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,13 +181,13 @@ public class RemoverRem extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 100, Short.MAX_VALUE)))
+                        .addGap(0, 123, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addGap(17, 17, 17)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                    .addGap(17, 17, 17)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,19 +230,18 @@ public class RemoverRem extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_nomeActionPerformed
 
     private void BotaoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCActionPerformed
-       RemedioDAO dao = new RemedioDAO();
+        RemedioDAO dao = new RemedioDAO();
         int[] indices = tab.getSelectedRows();
         for (int i = 0; i < indices.length; i++) {
             int indice = indices[i];
-            String nome = (String) tab.getModel().getValueAt(indice, 0);
-            Remedio rem = new Remedio();
-            rem.setNome(nome);
-            
-            dao.remover(rem);
-              
+            int codBarras = (int) tab.getModel().getValueAt(indice, 0);
+            Remedio remedio = new Remedio();
+            remedio.setCodBarras(codBarras);
+
+            dao.remover(remedio);
         }
-      this.buscarTodos();
-    
+        this.buscarTodos();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoCActionPerformed
 
@@ -251,7 +252,7 @@ public class RemoverRem extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-       try {
+        try {
             RemedioDAO dao = new RemedioDAO();
             Remedio re = new Remedio();
             Connection con = ConnectionFactory.getConnection();
@@ -266,26 +267,22 @@ public class RemoverRem extends javax.swing.JInternalFrame {
 
             while (rs.next()) {
                 model.addRow(
-
-                    new Object[]{
-                        rs.getInt("codBarras"),
-                        rs.getString("nome"),
-                        rs.getString("bula"),
-                        rs.getString("fabricacao"),
-                        rs.getString("validade"),
-                        rs.getString("quantidade"),
-
-                    }
+                        new Object[]{
+                            rs.getInt("codBarras"),
+                            rs.getString("nome"),
+                            rs.getString("bula"),
+                            rs.getString("fabricacao"),
+                            rs.getString("validade"),
+                            rs.getString("quantidade"),}
                 );
 
                 System.out.println("nome: " + rs.getString("nome"));
 
-
             }
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(viewConsultaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 

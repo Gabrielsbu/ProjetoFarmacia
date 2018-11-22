@@ -34,33 +34,36 @@ public class RemedioDAO {
         }
     }
 
-    public void remover(Remedio rem) {
-        String sql = "DELETE FROM remedio WHERE nome = ? ";
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        try {
+    
+        public void remover(Remedio remedio){
 
-            stmt = con.prepareStatement("SELECT nome from remedio WHERE nome = ?");
-            stmt.setString(1, rem.getNome());
-            ResultSet resultado = stmt.executeQuery();
-
-            if (resultado.next()) {
+      String sql = "DELETE FROM remedio WHERE codBarras = ? ";
+      Connection con = ConnectionFactory.getConnection();
+      PreparedStatement stmt = null;
+      
+     try {
+         
+           stmt = con.prepareStatement("SELECT codBarras from remedio WHERE codBarras = ?");
+           stmt.setInt(1, remedio.getCodBarras()); 
+           ResultSet resultado = stmt.executeQuery();
+        
+           if(resultado.next()){   
                 stmt = con.prepareStatement(sql);
-                stmt.setString(1, rem.getNome());
+                stmt.setInt(1, remedio.getCodBarras());      
                 stmt.executeUpdate();
-                JOptionPane.showConfirmDialog(null, "Remédio excluido!");
-            } else {
-                JOptionPane.showConfirmDialog(null, "Remédio não encontrado");
+                JOptionPane.showConfirmDialog(null, "Remédio Excluído");
+            } else{
+                JOptionPane.showConfirmDialog(null, "Remédio não localizado, verifique o CDBARRAS! ");
             }
-
-        } catch (SQLException ex) {
-            JOptionPane.showConfirmDialog(null, "Algo deu errado!: " + ex);
-
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt);
-        }
-    }
-
+           
+           
+                 } catch (SQLException ex) {
+        JOptionPane.showConfirmDialog(null, "Erro! " + ex);
+        
+     }finally{
+         ConnectionFactory.closeConnection(con, stmt);
+     }
+ }
     public void adicionar(Remedio rem, int quantidade) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
