@@ -37,9 +37,9 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txtBula = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtValidade = new javax.swing.JTextField();
+        fab = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtFabricacao = new javax.swing.JTextField();
+        vali = new javax.swing.JTextField();
         txtQuantidade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -68,11 +68,11 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Fabricação (DD/MM/AAAA)");
 
-        jLabel5.setText("Vencimento (DD/MM/AAAA)");
+        jLabel5.setText("Validade (DD/MM/AAAA)");
 
-        txtFabricacao.addActionListener(new java.awt.event.ActionListener() {
+        vali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFabricacaoActionPerformed(evt);
+                valiActionPerformed(evt);
             }
         });
 
@@ -117,9 +117,9 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(fab, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(vali, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtBula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,8 +174,8 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
@@ -201,9 +201,9 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBulaActionPerformed
 
-    private void txtFabricacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricacaoActionPerformed
+    private void valiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFabricacaoActionPerformed
+    }//GEN-LAST:event_valiActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             Remedio rem = new Remedio();
@@ -211,8 +211,8 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
             rem.setCodBarras(Integer.parseInt(txtCBarras.getText()));
             rem.setNome(txtNome.getText());
             rem.setBula(txtBula.getText());
-            rem.setFabricacao(txtFabricacao.getText());
-            rem.setValidade(txtValidade.getText());
+            rem.setFabricacao(fab.getText());
+            rem.setValidade(vali.getText());
             rem.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
             dao.create(rem);
         // TODO add your handling code here:
@@ -225,6 +225,7 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fab;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -238,9 +239,8 @@ public class CadastrarRem extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtBula;
     private javax.swing.JTextField txtCBarras;
-    private javax.swing.JTextField txtFabricacao;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtQuantidade;
-    private javax.swing.JTextField txtValidade;
+    private javax.swing.JTextField vali;
     // End of variables declaration//GEN-END:variables
 }

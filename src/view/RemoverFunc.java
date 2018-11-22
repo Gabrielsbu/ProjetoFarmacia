@@ -74,6 +74,7 @@ public class RemoverFunc extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         tcpf = new javax.swing.JTextField();
@@ -83,6 +84,8 @@ public class RemoverFunc extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTabela = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+
+        jButton4.setText("jButton4");
 
         setBorder(null);
         setClosable(true);
@@ -277,6 +280,7 @@ public class RemoverFunc extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

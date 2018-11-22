@@ -149,7 +149,7 @@ public class viewRemoverRem extends javax.swing.JFrame {
         re.setNome(txtNome.getText());
         int qtd = (Integer.parseInt(txtQuant.getText()));
 
-        rem.remover(re, qtd);
+        rem.remover(re);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoCActionPerformed

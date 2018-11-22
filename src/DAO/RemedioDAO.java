@@ -26,7 +26,7 @@ public class RemedioDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showConfirmDialog(null, "Salvo com sucesso");
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso","Alerta",JOptionPane.WARNING_MESSAGE);
         } catch (SQLException ex) {
             JOptionPane.showConfirmDialog(null, "Erro ao salvar: " + ex);
         } finally {
@@ -34,21 +34,21 @@ public class RemedioDAO {
         }
     }
 
-    public void remover(Remedio rem, int quantidade) {
+    public void remover(Remedio rem) {
+        String sql = "DELETE FROM remedio WHERE nome = ? ";
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
 
-            stmt = con.prepareStatement("SELECT codBarras from remedio WHERE codBarras = ?");
-            stmt.setInt(1, rem.getCodBarras());
+            stmt = con.prepareStatement("SELECT nome from remedio WHERE nome = ?");
+            stmt.setString(1, rem.getNome());
             ResultSet resultado = stmt.executeQuery();
 
             if (resultado.next()) {
-                stmt = con.prepareStatement("UPDATE remedio SET quantidade  = quantidade -? WHERE codBarras = ?");
-                stmt.setInt(1, quantidade);
-                stmt.setInt(2, rem.getCodBarras());
+                stmt = con.prepareStatement(sql);
+                stmt.setString(1, rem.getNome());
                 stmt.executeUpdate();
-                JOptionPane.showConfirmDialog(null, "Unidades removidas");
+                JOptionPane.showConfirmDialog(null, "Remédio excluido!");
             } else {
                 JOptionPane.showConfirmDialog(null, "Remédio não encontrado");
             }

@@ -42,6 +42,7 @@ public class RemoverUnidades extends javax.swing.JInternalFrame {
         Botao = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
+        setClosable(true);
         setTitle("Remove Unidades");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
