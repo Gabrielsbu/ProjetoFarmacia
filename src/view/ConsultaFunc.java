@@ -121,7 +121,7 @@ public class ConsultaFunc extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTabela);
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
+        jButton2.setBackground(new java.awt.Color(204, 255, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancel.png"))); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class ConsultaFunc extends javax.swing.JInternalFrame {
             }
         });
 
-        bConsulta.setBackground(new java.awt.Color(255, 204, 204));
+        bConsulta.setBackground(new java.awt.Color(204, 255, 204));
         bConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/4.png"))); // NOI18N
         bConsulta.setText("Consultar");
         bConsulta.addActionListener(new java.awt.event.ActionListener() {

@@ -67,7 +67,7 @@ public class AtualizarRemedio extends javax.swing.JInternalFrame {
             }
         });
 
-        Canc.setBackground(new java.awt.Color(255, 204, 204));
+        Canc.setBackground(new java.awt.Color(204, 255, 204));
         Canc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancel.png"))); // NOI18N
         Canc.setText("Cancelar");
         Canc.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class AtualizarRemedio extends javax.swing.JInternalFrame {
             }
         });
 
-        Att.setBackground(new java.awt.Color(255, 204, 204));
+        Att.setBackground(new java.awt.Color(204, 255, 204));
         Att.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/kisspng-computer-icons-clip-art-png-refresh-save-5ab0ba92b3fc71.1957356015215315387372.jpg"))); // NOI18N
         Att.setText("Atualizar");
         Att.addActionListener(new java.awt.event.ActionListener() {
