@@ -87,16 +87,16 @@ public class Principal extends javax.swing.JFrame {
         telaLayout.setHorizontalGroup(
             telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaLayout.createSequentialGroup()
-                .addContainerGap(423, Short.MAX_VALUE)
+                .addContainerGap(464, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(129, 129, 129))
+                .addGap(88, 88, 88))
         );
         telaLayout.setVerticalGroup(
             telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaLayout.createSequentialGroup()
-                .addContainerGap(163, Short.MAX_VALUE)
+                .addContainerGap(165, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(21, 21, 21))
+                .addGap(19, 19, 19))
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user.png"))); // NOI18N
@@ -159,7 +159,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agregar(1).png"))); // NOI18N
-        jMenuItem10.setText("Adicionar");
+        jMenuItem10.setText("Adicionar Estoque");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -245,13 +245,13 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(tela)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(tela)
                 .addGap(0, 0, 0))
         );
@@ -274,7 +274,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       
+        AtualizarFuncionario att = new AtualizarFuncionario();
+        tela.add(att);
+        att.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

@@ -47,7 +47,7 @@ public class Logar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tela.setBackground(new java.awt.Color(204, 255, 204));
+        tela.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1.png"))); // NOI18N
 
@@ -74,8 +74,6 @@ public class Logar extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout telaLayout = new javax.swing.GroupLayout(tela);
         tela.setLayout(telaLayout);
         telaLayout.setHorizontalGroup(
@@ -83,7 +81,7 @@ public class Logar extends javax.swing.JFrame {
             .addGroup(telaLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 368, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(141, 141, 141))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, telaLayout.createSequentialGroup()
