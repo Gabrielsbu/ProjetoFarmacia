@@ -26,7 +26,7 @@ public class RemedioDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso","Alerta",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso", "Alerta", JOptionPane.WARNING_MESSAGE);
         } catch (SQLException ex) {
             JOptionPane.showConfirmDialog(null, "Erro ao salvar: " + ex);
         } finally {
@@ -34,36 +34,35 @@ public class RemedioDAO {
         }
     }
 
-    
-        public void remover(Remedio remedio){
+    public void remover(Remedio remedio) {
 
-      String sql = "DELETE FROM remedio WHERE codBarras = ? ";
-      Connection con = ConnectionFactory.getConnection();
-      PreparedStatement stmt = null;
-      
-     try {
-         
-           stmt = con.prepareStatement("SELECT codBarras from remedio WHERE codBarras = ?");
-           stmt.setInt(1, remedio.getCodBarras()); 
-           ResultSet resultado = stmt.executeQuery();
-        
-           if(resultado.next()){   
+        String sql = "DELETE FROM remedio WHERE codBarras = ? ";
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+
+            stmt = con.prepareStatement("SELECT codBarras from remedio WHERE codBarras = ?");
+            stmt.setInt(1, remedio.getCodBarras());
+            ResultSet resultado = stmt.executeQuery();
+
+            if (resultado.next()) {
                 stmt = con.prepareStatement(sql);
-                stmt.setInt(1, remedio.getCodBarras());      
+                stmt.setInt(1, remedio.getCodBarras());
                 stmt.executeUpdate();
                 JOptionPane.showConfirmDialog(null, "Remédio Excluído");
-            } else{
+            } else {
                 JOptionPane.showConfirmDialog(null, "Remédio não localizado, verifique o CDBARRAS! ");
             }
-           
-           
-                 } catch (SQLException ex) {
-        JOptionPane.showConfirmDialog(null, "Erro! " + ex);
-        
-     }finally{
-         ConnectionFactory.closeConnection(con, stmt);
-     }
- }
+
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, "Erro! " + ex);
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+
     public void adicionar(Remedio rem, int quantidade) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -91,6 +90,7 @@ public class RemedioDAO {
         }
 
     }
+
     public void removUn(Remedio rem, int quantidade) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -119,7 +119,6 @@ public class RemedioDAO {
 
     }
 
-    
     public void Atualizar(Remedio rem, String nome, int codBarras, String bula, String fabricacao, String validade) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -162,6 +161,31 @@ public class RemedioDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
 
+    }
+
+    public void update(Remedio rem) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+
+            stmt = con.prepareStatement("UPDATE remedio SET nome = ?, bula = ?,fabricacao = ?, validade = ?, quantidade = ? WHERE codBarras = ?");
+            stmt.setString(1, rem.getNome());
+            stmt.setString(2, rem.getBula());
+            stmt.setString(3, rem.getFabricacao());
+            stmt.setString(4, rem.getValidade());
+            stmt.setInt(5, rem.getQuantidade());
+            stmt.setInt(6, rem.getCodBarras());
+            stmt.executeUpdate();
+
+            JOptionPane.showConfirmDialog(null, "ATUALIZADO COM SUCESSO");
+
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, "Algo deu errado!: " + ex);
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
     }
 
 }
